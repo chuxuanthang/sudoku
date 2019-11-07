@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vue.js in action</title>
+    <title>Sudokuuu</title>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <link href="style.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet" />
