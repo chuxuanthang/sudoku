@@ -13,7 +13,6 @@ var sudokuApp = new Vue({
     methods: {
         initializeGame() {
             var defaultSudokuMatrix = generate();
-            console.log(sudoku);
             // Empty random cells per row
             for (var i = 0; i < defaultSudokuMatrix.length; ++i) {
                 for (var k = 0; k < 4; ++k) {
@@ -29,8 +28,10 @@ var sudokuApp = new Vue({
         },
 
         evaluateGame() {
-            var result = sudoku.map((x, i) => sudoku[i].map(y => "y.num"));
-            var maxtrixCheck = this.sudokuMatrix.map((x, i) => this.sudokuMatrix[i].map(y => "y.num"));
+            var result = sudoku.map((x, i) => sudoku[i].map(y => parseInt(y.num)));
+            var maxtrixCheck = this.sudokuMatrix.map((x, i) => this.sudokuMatrix[i].map(y => parseInt(y.num)));
+            console.log(result);
+            console.log(maxtrixCheck);
 
             if (JSON.stringify(result) == JSON.stringify(maxtrixCheck)) {
                 this.answerImage = "success.gif";
