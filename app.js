@@ -12,9 +12,9 @@ var sudokuApp = new Vue({
 
     methods: {
         initializeGame() {
-            new Image().src = 'fail.gif';
-            new Image().src = 'fail1.gif';
-            new Image().src = 'success.gif';
+            // new Image().src = 'fail.gif';
+            // new Image().src = 'fail1.gif';
+            // new Image().src = 'success.gif';
             var defaultSudokuMatrix = generate();
             // Empty random cells per row
             for (var i = 0; i < defaultSudokuMatrix.length; ++i) {
