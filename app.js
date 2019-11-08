@@ -10,11 +10,6 @@ var sudokuApp = new Vue({
         showAnswer: false
     },
 
-    mounted() {
-        new Image().src = 'fail.gif';
-        new Image().src = 'success.gif';
-    },
-
     methods: {
         initializeGame() {
             var defaultSudokuMatrix = generate();

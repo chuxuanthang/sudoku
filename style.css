@@ -143,3 +143,6 @@ header {
 .mt-25 {
     margin-top: 25px;
 }
+
+#preload-01 { background: url('fail.gif') no-repeat -9999px -9999px; }
+#preload-02 { background: url('success.gif') no-repeat -9999px -9999px; }
