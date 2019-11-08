@@ -12,6 +12,7 @@ button:focus {
 
 body {
     display: grid;
+    grid-template-rows: 150px 1fr;
     background-color: #ff5252;
     font-family: 'Dosis', sans-serif;
 }
@@ -22,12 +23,6 @@ header {
     margin: 20px;
     place-self: center;
     justify-items: center;
-}
-
-header a {
-    color: white;
-    padding-bottom: 30px;
-    text-decoration: none;
 }
 
 #app-sudoku {
@@ -138,10 +133,6 @@ header a {
 
 .blue {
     color: rgb(52, 89, 255);
-}
-
-.mt-25 {
-    margin-top: 25px;
 }
 
 .mt-20 {
