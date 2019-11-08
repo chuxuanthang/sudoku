@@ -8,23 +8,25 @@
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <link href="style.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet" />
+    <link rel="image_src" href="thumb.jpg" />
 </head>
 
 <body>
     <header>
+        <a href="https://www.facebook.com/thangg.tl" target="_blank">Created by TL</a>
         <h1>Sudoku</h1>
     </header>
     <div id="app-sudoku">
-        <button v-if="!isGameStarted" class="button mt-20" v-on:click="initializeGame('3')"><span>Ez</span></button>
+        <button v-if="isNewGame" class="button mt-20" v-on:click="initializeGame('3')"><span>Ez</span></button>
 
-        <button v-if="!isGameStarted" class="button mt-20" v-on:click="initializeGame('4')"><span>Normal</span></button>
+        <button v-if="isNewGame" class="button mt-20" v-on:click="initializeGame('4')"><span>Normal</span></button>
 
-        <button v-if="!isGameStarted" class="button mt-20" v-on:click="initializeGame('5')"><span>Hard</span></button>
+        <button v-if="isNewGame" class="button mt-20" v-on:click="initializeGame('5')"><span>Hard</span></button>
 
-        <button v-if="!isGameStarted" class="button mt-20" v-on:click="initializeGame('6')"><span>Hard as
+        <button v-if="isNewGame" class="button mt-20" v-on:click="initializeGame('6')"><span>Hard as
                 fu**</span></button>
 
-        <button class="button mt-20" v-on:click="restart()" v-if="isGameStarted">
+        <button class="button mt-20" v-on:click="restart()" v-if=" isGameStarted">
             <span>New Game</span>
         </button>
 

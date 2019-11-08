@@ -6,6 +6,13 @@ var sudokuApp = new Vue({
         answerImage: "",
         isGameStarted: false,
         showAnswer: false,
+        isNewGame: true,
+    },
+
+    mounted() {
+        // Preload image
+        new Image().src = 'fail.gif';
+        new Image().src = 'success.gif';
     },
 
     methods: {
@@ -27,6 +34,7 @@ var sudokuApp = new Vue({
 
             this.sudokuMatrix = defaultSudokuMatrix;
             this.isGameStarted = true;
+            this.isNewGame = false;
         },
 
         evaluateGame() {
@@ -37,17 +45,24 @@ var sudokuApp = new Vue({
                 this.answerImage = "success.gif";
                 this.showAnswer = true;
                 this.isGameStarted = false;
+                this.isNewGame = false;
 
                 setTimeout(() => {
                     this.showAnswer = false;
+                    this.isGameStarted = true;
+                    this.isNewGame = false;
                 }, 2000);
             }
             else {
                 this.answerImage = "fail.gif";
                 this.showAnswer = true;
+                this.isGameStarted = false;
+                this.isNewGame = false;
 
                 setTimeout(() => {
                     this.showAnswer = false;
+                    this.isGameStarted = true;
+                    this.isNewGame = false;
                 }, 2000);
             }
         },
@@ -55,6 +70,7 @@ var sudokuApp = new Vue({
         restart() {
             this.isGameStarted = false;
             this.showAnswer = false;
+            this.isNewGame = true;
         },
 
         formatCell(row, cell) {
