@@ -12,7 +12,6 @@ button:focus {
 
 body {
     display: grid;
-    grid-template-rows: 150px 1fr;
     background-color: #ff5252;
     font-family: 'Dosis', sans-serif;
 }
@@ -20,11 +19,16 @@ body {
 header {
     display: grid;
     color: white;
+    margin: 20px;
+    place-self: center;
+    justify-items: center;
 }
 
-    header h1 {
-        place-self: center;
-    }
+header a {
+    color: white;
+    padding-bottom: 30px;
+    text-decoration: none;
+}
 
 #app-sudoku {
     place-self: center;
@@ -55,30 +59,30 @@ header {
     font-weight: bold;
 }
 
-    .button span {
-        cursor: pointer;
-        display: inline-block;
-        position: relative;
-        transition: 0.5s;
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+    .button:hover span:after {
+        opacity: 1;
+        right: 0;
     }
-
-        .button span:after {
-            content: '\00bb';
-            position: absolute;
-            opacity: 0;
-            top: 0;
-            right: -20px;
-            transition: 0.5s;
-        }
-
-    .button:hover span {
-        padding-right: 25px;
-    }
-
-        .button:hover span:after {
-            opacity: 1;
-            right: 0;
-        }
 
 .grid-sudoku {
     display: table;
@@ -86,13 +90,13 @@ header {
     border: 3px solid black;
 }
 
-    .grid-sudoku > div:nth-child(3), .grid-sudoku > div:nth-child(6) {
-        border-bottom: 3px solid black;
-    }
+.grid-sudoku > div:nth-child(3), .grid-sudoku > div:nth-child(6) {
+    border-bottom: 3px solid black;
+}
 
-    .grid-row > div:nth-child(3), .grid-row > div:nth-child(6) {
-        border-right: 3px solid black;
-    }
+.grid-row > div:nth-child(3), .grid-row > div:nth-child(6) {
+    border-right: 3px solid black;
+}
 
 .grid-cell {
     display: table-cell;
@@ -102,13 +106,12 @@ header {
 
 .grid-cell-editor {
     border: none;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     font-family: 'Dosis', sans-serif;
     font-weight: bold;
     text-align: center;
     font-size: 18px;
-    transition: all ease 1.0s;
 }
 
 .answer {
@@ -128,9 +131,6 @@ header {
     height: 350px;
 }
 
-.fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-}
 
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
@@ -142,4 +142,8 @@ header {
 
 .mt-25 {
     margin-top: 25px;
+}
+
+.mt-20 {
+    margin-top: 10;
 }

@@ -3,34 +3,38 @@ var sudokuApp = new Vue({
 
     data: {
         sudokuMatrix: [],
-        initializeGameText: "Start!",
-        evaluateGameText: "Verify!",
         answerImage: "",
         isGameStarted: false,
-        showAnswer: false
+        showAnswer: false,
+        isNewGame: true,
     },
 
     mounted() {
+        // Preload image
         new Image().src = 'fail.gif';
         new Image().src = 'success.gif';
     },
 
     methods: {
-        initializeGame() {
+        initializeGame(level) {
             var defaultSudokuMatrix = generate();
 
             // Empty random cells per row
             for (var i = 0; i < defaultSudokuMatrix.length; ++i) {
-                for (var k = 0; k < 4; ++k) {
+                var k = 0;
+                while (k < level) {
                     var randomColumnIndex = Math.floor(Math.random() * defaultSudokuMatrix.length);
-                    defaultSudokuMatrix[i][randomColumnIndex].num = "";
-                    defaultSudokuMatrix[i][randomColumnIndex].readOnly = false;
+                    if (defaultSudokuMatrix[i][randomColumnIndex].num != "") {
+                        k++;
+                        defaultSudokuMatrix[i][randomColumnIndex].num = "";
+                        defaultSudokuMatrix[i][randomColumnIndex].readOnly = false;
+                    }
                 }
             }
 
             this.sudokuMatrix = defaultSudokuMatrix;
-            this.initializeGameText = "New game";
             this.isGameStarted = true;
+            this.isNewGame = false;
         },
 
         evaluateGame() {
@@ -41,22 +45,32 @@ var sudokuApp = new Vue({
                 this.answerImage = "success.gif";
                 this.showAnswer = true;
                 this.isGameStarted = false;
+                this.isNewGame = false;
 
                 setTimeout(() => {
                     this.showAnswer = false;
                     this.isGameStarted = true;
+                    this.isNewGame = false;
                 }, 2000);
             }
             else {
                 this.answerImage = "fail.gif";
                 this.showAnswer = true;
                 this.isGameStarted = false;
+                this.isNewGame = false;
 
                 setTimeout(() => {
                     this.showAnswer = false;
                     this.isGameStarted = true;
+                    this.isNewGame = false;
                 }, 2000);
             }
+        },
+
+        restart() {
+            this.isGameStarted = false;
+            this.showAnswer = false;
+            this.isNewGame = true;
         },
 
         formatCell(row, cell) {
