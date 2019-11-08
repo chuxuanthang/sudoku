@@ -10,10 +10,13 @@ var sudokuApp = new Vue({
         showAnswer: false
     },
 
+    mounted() {
+        new Image().src = 'fail.gif';
+        new Image().src = 'success.gif';
+    },
+
     methods: {
         initializeGame() {
-            new Image().src = 'fail.gif';
-            new Image().src = 'success.gif';
             var defaultSudokuMatrix = generate();
 
             // Empty random cells per row
