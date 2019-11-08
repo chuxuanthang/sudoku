@@ -32,8 +32,6 @@ var sudokuApp = new Vue({
         evaluateGame() {
             var result = sudoku.map((x, i) => sudoku[i].map(y => parseInt(y.num)));
             var maxtrixCheck = this.sudokuMatrix.map((x, i) => this.sudokuMatrix[i].map(y => parseInt(y.num)));
-            console.log(result);
-            console.log(maxtrixCheck);
 
             if (JSON.stringify(result) == JSON.stringify(maxtrixCheck)) {
                 this.answerImage = "success.gif";
